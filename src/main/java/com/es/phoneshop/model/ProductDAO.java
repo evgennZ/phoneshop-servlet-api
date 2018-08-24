@@ -2,7 +2,7 @@ package com.es.phoneshop.model;
 
 import java.util.List;
 
-public interface ProductDao {
+public interface ProductDAO {
     Product getProduct(Long id);
     List<Product> findProducts();
     void save(Product product);

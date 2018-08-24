@@ -8,18 +8,17 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <%--<link rel='stylesheet' href='${pageContext.request.contextPath}/WEB-INF/resources/css/bootstrap.min.css'>--%>
-    <%--<script type='text/javascript' src='/WEB-INF/resources/js/bootstrap.min.js'></script>--%>
+    <title>Products List</title>
+    <link rel='stylesheet' href='${pageContext.request.contextPath}/resources/css/bootstrap.min.css'>
 </head>
 <body>
 
 <div class="row mt-5">
     <div class="col-md-4">
-        <h1> Hello from product list!</h1>
+        <h5 style="text-align: center">Product list</h5>
     </div>
-    <div class="col-md-4">
-        <table>
+    <div class="col-md-4 justify-content-center">
+        <table class="table ">
             <thead>
             <tr>
                 <td>Id</td>
@@ -29,12 +28,12 @@
                 <td>Stock</td>
             </tr>
             </thead>
+
             <c:forEach var="product" items="${products}">
                 <tr>
-                        <%--      <td>
-                                <img src="https://raw.githubusercontent.com/andrewosipenko/phoneshop-ext-images/master/${product.imageUrl}">
-                              </td>--%>
-                    <td>${product.id}</td>
+                    <td>
+                        <a href="/products/${product.id}">${product.id}</a>
+                    </td>
                     <td>${product.code}</td>
                     <td>${product.description}</td>
                     <td>${product.price}</td>

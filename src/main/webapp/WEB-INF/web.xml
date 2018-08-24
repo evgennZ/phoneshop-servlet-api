@@ -12,7 +12,40 @@
   
   <servlet-mapping>
     <servlet-name>productList</servlet-name>
+    <url-pattern>/products/</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>productList</servlet-name>
     <url-pattern>/products</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>product</servlet-name>
+    <servlet-class>com.es.phoneshop.web.ProductDetaiilsPageServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>product</servlet-name>
+    <url-pattern>/products/*</url-pattern>
+  </servlet-mapping>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/pages/errorPage.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/pages/errorPage.jsp</location>
+  </error-page>
+
+  <listener>
+      <listener-class>com.es.phoneshop.listeners.SampleDataServletContextListener</listener-class>
+  </listener>
+
+  <context-param>
+    <param-name>enableAutowriteTestData</param-name>
+    <param-value>true</param-value>
+  </context-param>
 
 </web-app>

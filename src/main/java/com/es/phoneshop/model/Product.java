@@ -1,28 +1,23 @@
 package com.es.phoneshop.model;
 
 import java.math.BigDecimal;
-import java.text.NumberFormat;
 import java.util.Currency;
-import java.util.Locale;
 
 public class Product {
     private Long id;
     private String code;
     private String description;
-    /** null means there is no price because the product is outdated or new */
     private BigDecimal price;
-    /** can be null if the price is null */
     private Currency currency;
-    private int stock;
+    private Integer stock;
 
-    public Product(Long id,String code, String description, BigDecimal price,  int stock) {
-        this.id = id;
-        this.code = code;
-        this.description = description;
-        this.price = price;
-        this.stock = stock;
-
-       /* if(price!=null) currency = Currency.getInstance("USD");*/
+    public Product(Long id, String code, String description, BigDecimal price, Currency currency, Integer stock){
+        setId(id);
+        setCode(code);
+        setDescription(description);
+        setPrice(price);
+        setCurrency(currency);
+        setStock(stock);
     }
 
     public Long getId() {
@@ -65,11 +60,12 @@ public class Product {
         this.currency = currency;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
+
 }
