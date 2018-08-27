@@ -11,8 +11,7 @@ public class Product {
     private Currency currency;
     private Integer stock;
 
-    public Product(Long id, String code, String description, BigDecimal price, Currency currency, Integer stock){
-        setId(id);
+    public Product(String code, String description, BigDecimal price, Currency currency, Integer stock){
         setCode(code);
         setDescription(description);
         setPrice(price);
@@ -67,5 +66,4 @@ public class Product {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
-
 }

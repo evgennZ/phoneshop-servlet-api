@@ -19,25 +19,23 @@ public class SampleDataServletContextListener implements ServletContextListener 
 
     public void contextInitialized(ServletContextEvent servletContextEvent) {
 
-        String ctx = servletContextEvent.getServletContext().getInitParameter("enableAutowriteTestData");
-        if("true".equals(ctx)==false) return;
+        String enableAutowriteTestDataParam = servletContextEvent.getServletContext().getInitParameter("enableAutowriteTestData");
+        if(!Boolean.parseBoolean(enableAutowriteTestDataParam)) return;
 
         ProductDAO products = ArrayListProductDAO.getInstance();
 
-        products.save(new Product(generateId(), "code 1", "description 1", new BigDecimal(100),
+        products.save(new Product("code 1", "description 1", new BigDecimal(100),
                 Currency.getInstance(Locale.UK), 100));
-        products.save(new Product(generateId(), "code 2", "description 2", new BigDecimal(400),
+        products.save(new Product("code 2", "description 2", new BigDecimal(400),
                 Currency.getInstance(Locale.UK), 1));
-        products.save(new Product(generateId(), "code 3", "description 3", new BigDecimal(200),
+        products.save(new Product("code 3", "description 3", new BigDecimal(200),
                 Currency.getInstance(Locale.UK), 200));
-        products.save(new Product(generateId(), "code 4", "description 4", new BigDecimal(300),
+        products.save(new Product( "code 4", "description 4", new BigDecimal(300),
                 Currency.getInstance(Locale.UK), 300));
-        products.save(new Product(generateId(), "code 5", "description 5", new BigDecimal(400),
+        products.save(new Product( "code 5", "description 5", new BigDecimal(400),
                 Currency.getInstance(Locale.UK), 2));
 
     }
 
-    public void contextDestroyed(ServletContextEvent servletContextEvent) {
-
-    }
+    public void contextDestroyed(ServletContextEvent servletContextEvent) {}
 }
